@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.1/angular.min.js"></script>
+  <script>
+  var app = angular.module("myImages", []);
+
+  app.controller('images', function($scope){
+    $scope.images = [
+      "ymm_2172.jpg",
+      "ymm_2181.jpg",
+      "ymm_2184.jpg",
+      "ymm_2204.jpg"
+    ];
+    $scope.clickimage = function(image) {
+      console.log('image clicked');
+      $scope.selectedimage = image;
+    }
+  });
+  </script>
+  <style>
+  ul {
+    list-style: none;
+    display: inline-flex;
+  }
+  li img {
+    width: 200px;
+  }
+  .main {
+    width: 80%;
+    display: block;
+    margin: auto;
+  }
+  </style>
+</head>
+
+<body>
+
+<div ng-app="myImages" ng-controller="images">
+<img class="main" ng-src="{{selectedimage}}">
+  <ul ng-repeat="image in images">
+    <li ng-click="clickimage(image)" >
+      <img ng-src="{{image}}">
+    </li>
+  </ul>
+</div>
+
+</body>
+</html>
