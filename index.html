@@ -13,6 +13,7 @@
       "ymm_2184.jpg",
       "ymm_2204.jpg"
     ];
+    $scope.selectedimage = "ymm_2184.jpg";
     $scope.clickimage = function(image) {
       console.log('image clicked');
       $scope.selectedimage = image;
@@ -39,11 +40,12 @@
 
 <div ng-app="myImages" ng-controller="images">
 <img class="main" ng-src="{{selectedimage}}">
-  <ul ng-repeat="image in images">
-    <li ng-click="clickimage(image)" >
-      <img ng-src="{{image}}">
+  <ul >
+    <li ng-repeat="image in images" ng-click="clickimage(image)" >
+      <img ng-class="{selected:selectedImage}" ng-src="{{image}}">
     </li>
-  </ul>
+  </ul><br/>
+  <button ng-click="">Save</button>
 </div>
 
 </body>
